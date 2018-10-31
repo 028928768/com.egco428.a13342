@@ -17,8 +17,12 @@ class CookieTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // Use the edit button item provided by the table view controller.
+        navigationItem.leftBarButtonItem = editButtonItem
+        
+        //Load sample data
         loadSampleResults()
+        
     }
 
     // MARK: - Table view data source
@@ -65,17 +69,19 @@ class CookieTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            results.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -101,6 +107,22 @@ class CookieTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+   
+    //MARK: Actions
+    @IBAction func unwindToCookiesList(sender: UIStoryboardSegue){
+        if let sourceViewController =  sender.source as? CookiesViewController,
+            let newCookie = sourceViewController.newCookie {
+            
+            //Add a new Cookies.
+            let newIndexPath = IndexPath(row: results.count, section: 0)
+            results.append(newCookie)
+        
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            
+            
+        }
+    }
     //MARK: Private Method
     private func loadSampleResults(){
         let photo = UIImage(named: "Open-CookieIMG")
