@@ -17,6 +17,7 @@
 		15BD44602189942B004D77A9 /* CookieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD445F2189942B004D77A9 /* CookieTableViewCell.swift */; };
 		15BD446221899653004D77A9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD446121899653004D77A9 /* Result.swift */; };
 		15BD44642189AD9B004D77A9 /* CookiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD44632189AD9B004D77A9 /* CookiesViewController.swift */; };
+		15BD44662189FD5F004D77A9 /* AddDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD44652189FD5F004D77A9 /* AddDeleteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		15BD445F2189942B004D77A9 /* CookieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieTableViewCell.swift; sourceTree = "<group>"; };
 		15BD446121899653004D77A9 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		15BD44632189AD9B004D77A9 /* CookiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesViewController.swift; sourceTree = "<group>"; };
+		15BD44652189FD5F004D77A9 /* AddDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeleteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				15BD4446218988C0004D77A9 /* AppDelegate.swift */,
 				15BD4448218988C0004D77A9 /* ViewController.swift */,
 				15BD444A218988C0004D77A9 /* Main.storyboard */,
+				15BD44652189FD5F004D77A9 /* AddDeleteViewController.swift */,
 				15BD44632189AD9B004D77A9 /* CookiesViewController.swift */,
 				15BD445D2189940D004D77A9 /* CookieTableViewController.swift */,
 				15BD445F2189942B004D77A9 /* CookieTableViewCell.swift */,
@@ -153,6 +156,7 @@
 				15BD446221899653004D77A9 /* Result.swift in Sources */,
 				15BD44642189AD9B004D77A9 /* CookiesViewController.swift in Sources */,
 				15BD4449218988C0004D77A9 /* ViewController.swift in Sources */,
+				15BD44662189FD5F004D77A9 /* AddDeleteViewController.swift in Sources */,
 				15BD444F218988C0004D77A9 /* com_egco428_a13342.xcdatamodeld in Sources */,
 				15BD4447218988C0004D77A9 /* AppDelegate.swift in Sources */,
 				15BD445E2189940D004D77A9 /* CookieTableViewController.swift in Sources */,
