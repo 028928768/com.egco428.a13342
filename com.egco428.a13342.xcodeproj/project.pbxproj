@@ -15,6 +15,7 @@
 		15BD4454218988C2004D77A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15BD4452218988C2004D77A9 /* LaunchScreen.storyboard */; };
 		15BD445E2189940D004D77A9 /* CookieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD445D2189940D004D77A9 /* CookieTableViewController.swift */; };
 		15BD44602189942B004D77A9 /* CookieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD445F2189942B004D77A9 /* CookieTableViewCell.swift */; };
+		15BD446221899653004D77A9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD446121899653004D77A9 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		15BD4455218988C2004D77A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		15BD445D2189940D004D77A9 /* CookieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieTableViewController.swift; sourceTree = "<group>"; };
 		15BD445F2189942B004D77A9 /* CookieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieTableViewCell.swift; sourceTree = "<group>"; };
+		15BD446121899653004D77A9 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				15BD444A218988C0004D77A9 /* Main.storyboard */,
 				15BD445F2189942B004D77A9 /* CookieTableViewCell.swift */,
 				15BD445D2189940D004D77A9 /* CookieTableViewController.swift */,
+				15BD446121899653004D77A9 /* Result.swift */,
 				15BD4450218988C2004D77A9 /* Assets.xcassets */,
 				15BD4452218988C2004D77A9 /* LaunchScreen.storyboard */,
 				15BD4455218988C2004D77A9 /* Info.plist */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15BD446221899653004D77A9 /* Result.swift in Sources */,
 				15BD4449218988C0004D77A9 /* ViewController.swift in Sources */,
 				15BD444F218988C0004D77A9 /* com_egco428_a13342.xcdatamodeld in Sources */,
 				15BD4447218988C0004D77A9 /* AppDelegate.swift in Sources */,

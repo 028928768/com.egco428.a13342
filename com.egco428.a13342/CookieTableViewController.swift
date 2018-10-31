@@ -10,37 +10,52 @@ import UIKit
 
 class CookieTableViewController: UITableViewController {
 
+    //MARK: Properties
+    var results = [Result]()
+    
+    //MARK: Outlets
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        loadSampleResults()
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return results.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        //Table view cells are reused and should be dequeued using a cell identifier
+        let cellIdentifier = "resultCell"
+       
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CookieTableViewCell else {
+            fatalError("The dequeued cell is not an instance of CookieTableViewCell")
+        }
+        
+        //Fetch the appropriate result for the data source layout.
+        let result = results[indexPath.row]
+        
+        cell.fortuneResult.text = result.result
+        cell.fortuneTime.text = result.time
+        cell.fortuneDate.text = result.date
+        cell.cookieImage.image = result.cookiePhoto
+        
 
-        // Configure the cell...
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,5 +101,22 @@ class CookieTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    //MARK: Private Method
+    private func loadSampleResults(){
+        let photo = UIImage(named: "Open-CookieIMG")
+        
+        guard let cookie1 = Result(cookiePhoto: photo, result: "You're Lucky!!", date: "10-October-2018", time: "12:00PM") else {
+            fatalError("Unable to load result of cookie1")
+        }
+        
+        guard let cookie2 = Result(cookiePhoto: photo, result: "You will get A", date: "11-October-2018", time: "13:00PM") else {
+            fatalError("Unable to load result of cookie2")
+        }
+        guard let cookie3 = Result(cookiePhoto: photo, result: "Don't panic", date: "12-October-2018", time: "14:00PM") else {
+            fatalError("Unable to load result of cookie3")
+        }
+        
+        results += [cookie1,cookie2,cookie3]
+    }
 
 }
