@@ -1,5 +1,5 @@
 //
-//  CookieTableViewCell.swift
+//  MessageTableViewCell.swift
 //  com.egco428.a13342
 //
 //  Created by Kanta'MacPro on 31/10/2561 BE.
@@ -8,12 +8,10 @@
 
 import UIKit
 
-class CookieTableViewCell: UITableViewCell {
-    //MARK Properties
-    @IBOutlet weak var fortuneResult: UILabel!
-    @IBOutlet weak var fortuneDateTime: UILabel!
-    @IBOutlet weak var cookieImage: UIImageView!
-    
+class MessageTableViewCell: UITableViewCell {
+    //MARK: Properties
+    @IBOutlet weak var message: UILabel!
+    @IBOutlet weak var type: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -18,6 +18,7 @@
 		15BD446221899653004D77A9 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD446121899653004D77A9 /* Result.swift */; };
 		15BD44642189AD9B004D77A9 /* CookiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD44632189AD9B004D77A9 /* CookiesViewController.swift */; };
 		15BD44662189FD5F004D77A9 /* AddDeleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD44652189FD5F004D77A9 /* AddDeleteViewController.swift */; };
+		15BD4468218A031A004D77A9 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD4467218A031A004D77A9 /* MessageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		15BD446121899653004D77A9 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		15BD44632189AD9B004D77A9 /* CookiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesViewController.swift; sourceTree = "<group>"; };
 		15BD44652189FD5F004D77A9 /* AddDeleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeleteViewController.swift; sourceTree = "<group>"; };
+		15BD4467218A031A004D77A9 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				15BD4448218988C0004D77A9 /* ViewController.swift */,
 				15BD444A218988C0004D77A9 /* Main.storyboard */,
 				15BD44652189FD5F004D77A9 /* AddDeleteViewController.swift */,
+				15BD4467218A031A004D77A9 /* MessageTableViewCell.swift */,
 				15BD44632189AD9B004D77A9 /* CookiesViewController.swift */,
 				15BD445D2189940D004D77A9 /* CookieTableViewController.swift */,
 				15BD445F2189942B004D77A9 /* CookieTableViewCell.swift */,
@@ -155,6 +158,7 @@
 			files = (
 				15BD446221899653004D77A9 /* Result.swift in Sources */,
 				15BD44642189AD9B004D77A9 /* CookiesViewController.swift in Sources */,
+				15BD4468218A031A004D77A9 /* MessageTableViewCell.swift in Sources */,
 				15BD4449218988C0004D77A9 /* ViewController.swift in Sources */,
 				15BD44662189FD5F004D77A9 /* AddDeleteViewController.swift in Sources */,
 				15BD444F218988C0004D77A9 /* com_egco428_a13342.xcdatamodeld in Sources */,

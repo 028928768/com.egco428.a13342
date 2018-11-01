@@ -19,22 +19,36 @@ class CookiesViewController: UIViewController {
     @IBOutlet weak var cookieImage: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var newCookieDate: UILabel!
-    @IBOutlet weak var newCookieTime: UILabel!
-    @IBOutlet weak var shakeButton: UIButton!
+   
+    
+    //date picker
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cookieImage.image = closed_Cookie
-        // Do any additional setup after loading the view.
+        saveButton.isHidden = true
+        
+        
     }
     
-
-    @IBAction func shakeHandler(_ sender: Any) {
-        cookieImage.image = opened_Cookie
-        resultSQL.text = "New Propercy!!"
-        newCookieTime.text = "2PM"
-        newCookieDate.text = "1-Nov-18"
-        saveButton.setTitle("Savable", for: .normal)
+    //Shake Handler Actions
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if event?.subtype == UIEvent.EventSubtype.motionShake {
+            
+            // Date Picker
+            let dateTest = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MMM-yyyy HH:mm a"
+            dateFormatter.locale = Locale(identifier: "th")
+            
+            cookieImage.image = opened_Cookie
+            resultSQL.text = "New Propercy!!"
+            newCookieDate.text = dateFormatter.string(from: dateTest)
+            saveButton.isHidden = false
+        }
     }
+   
     
     // MARK: - Navigation
     @IBAction func cancel(_ sender: UIBarButtonItem) {
@@ -50,14 +64,12 @@ class CookiesViewController: UIViewController {
         
         let newCookie_Result = resultSQL.text ?? ""
         let newCookie_Photo =  cookieImage.image
-        let newCookie_Date = newCookieDate.text ?? ""
-        let newCookie_Time = newCookieTime.text ?? ""
+        let newCookie_DateTime = newCookieDate.text ?? ""
+       
         
         let testPhoto = UIImage(named:"Open-CookieIMG")
         
-        
-        newCookie = Result(cookiePhoto: testPhoto, result: newCookie_Result, date: newCookie_Date, time: newCookie_Time)
-        
+        newCookie = Result(cookiePhoto: testPhoto, result: newCookie_Result, datetime: newCookie_DateTime, type: "")
         
     }
     

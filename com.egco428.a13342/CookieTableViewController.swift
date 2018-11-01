@@ -13,7 +13,6 @@ class CookieTableViewController: UITableViewController {
     //MARK: Properties
     var results = [Result]()
     
-    //MARK: Outlets
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,8 +49,7 @@ class CookieTableViewController: UITableViewController {
         let result = results[indexPath.row]
         
         cell.fortuneResult.text = result.result
-        cell.fortuneTime.text = result.time
-        cell.fortuneDate.text = result.date
+        cell.fortuneDateTime.text = result.datetime
         cell.cookieImage.image = result.cookiePhoto
         
 
@@ -127,14 +125,14 @@ class CookieTableViewController: UITableViewController {
     private func loadSampleResults(){
         let photo = UIImage(named: "Open-CookieIMG")
         
-        guard let cookie1 = Result(cookiePhoto: photo, result: "You're Lucky!!", date: "10-October-2018", time: "12:00PM") else {
+        guard let cookie1 = Result(cookiePhoto: photo, result: "You're Lucky!!", datetime: "10-October-2018 12:00PM",type: "") else {
             fatalError("Unable to load result of cookie1")
         }
         
-        guard let cookie2 = Result(cookiePhoto: photo, result: "You will get A", date: "11-October-2018", time: "13:00PM") else {
+        guard let cookie2 = Result(cookiePhoto: photo, result: "You will get A", datetime: "11-October-2018 13:00PM",type: "") else {
             fatalError("Unable to load result of cookie2")
         }
-        guard let cookie3 = Result(cookiePhoto: photo, result: "Don't panic", date: "12-October-2018", time: "14:00PM") else {
+        guard let cookie3 = Result(cookiePhoto: photo, result: "Don't panic", datetime: "12-October-2018 14:00PM",type: "") else {
             fatalError("Unable to load result of cookie3")
         }
         

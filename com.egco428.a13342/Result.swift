@@ -13,12 +13,12 @@ class Result {
     
     var cookiePhoto :UIImage?
     var result : String
-    var date : String
-    var time : String
+    var datetime : String
+    var type : String
     
     //MARK Initialization
     
-    init?(cookiePhoto: UIImage?,result: String,date: String,time: String) {
+    init?(cookiePhoto: UIImage?,result: String,datetime: String,type: String) {
         
         if result.isEmpty {
             return nil
@@ -27,7 +27,7 @@ class Result {
         //MARK Initialize stored properties
         self.cookiePhoto = cookiePhoto
         self.result = result
-        self.date = date
-        self.time = time
+        self.datetime = datetime
+        self.type = type
     }
 }
