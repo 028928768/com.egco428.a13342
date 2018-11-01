@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import os.log
+
 
 class CookieTableViewController: UITableViewController {
 
@@ -19,9 +21,13 @@ class CookieTableViewController: UITableViewController {
         // Use the edit button item provided by the table view controller.
         navigationItem.leftBarButtonItem = editButtonItem
         
+        //Load Cookies from Database
+        if let saveCookies = loadCookies(){
+            results += saveCookies
+        } else {
         //Load sample data
         loadSampleResults()
-        
+        }
     }
 
     // MARK: - Table view data source
@@ -73,6 +79,7 @@ class CookieTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             results.remove(at: indexPath.row)
+            saveCookies()
             tableView.deleteRows(at: [indexPath], with: .fade)
             
         } else if editingStyle == .insert {
@@ -118,6 +125,7 @@ class CookieTableViewController: UITableViewController {
         
             tableView.insertRows(at: [newIndexPath], with: .automatic)
             
+            saveCookies()
             
         }
     }
@@ -137,6 +145,18 @@ class CookieTableViewController: UITableViewController {
         }
         
         results += [cookie1,cookie2,cookie3]
+    }
+    
+    private func saveCookies() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(results, toFile: Result.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save meals...", log: OSLog.default, type: .error)
+        }
+    }
+    private func loadCookies() -> [Result]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Result.ArchiveURL.path) as? [Result]
     }
 
 }
