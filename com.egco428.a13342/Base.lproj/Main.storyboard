@@ -106,14 +106,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igF-N4-I34">
-                                <rect key="frame" x="0.0" y="409" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qBB-SG-G3d">
                                 <rect key="frame" x="121" y="506" width="133" height="76"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -123,8 +115,15 @@
                                     <segue destination="boY-7E-T8T" kind="unwind" unwindAction="unwindToCookiesListWithSender:" id="nBy-uF-bIE"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="72I-4q-2Kl">
+                                <rect key="frame" x="0.0" y="409" width="375" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4E-1q-uSo">
-                                <rect key="frame" x="177" y="447" width="182" height="21"/>
+                                <rect key="frame" x="177" y="469" width="182" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
@@ -148,8 +147,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cookieImage" destination="hrl-Zc-JcB" id="zFy-CC-rB3"/>
+                        <outlet property="cookieMessageResult" destination="72I-4q-2Kl" id="nYu-yw-K47"/>
                         <outlet property="newCookieDate" destination="U4E-1q-uSo" id="S05-Bb-Pus"/>
-                        <outlet property="resultSQL" destination="igF-N4-I34" id="zeG-mf-QUa"/>
                         <outlet property="saveButton" destination="qBB-SG-G3d" id="cnj-PJ-tNs"/>
                     </connections>
                 </viewController>

@@ -21,7 +21,8 @@ class CookiesViewController: UIViewController {
     @IBOutlet weak var cookieImage: UIImageView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var newCookieDate: UILabel!
-   
+    @IBOutlet weak var cookieMessageResult: UITextView!
+    
     
     //date picker
     
@@ -51,7 +52,7 @@ class CookiesViewController: UIViewController {
                 
                 let number = Int.random(in: 0 ... 13)
                 self.cookieImage.image = self.opened_Cookie
-                self.resultSQL.text = self.cookiesDB[number].cookieMessage
+                self.cookieMessageResult.text = self.cookiesDB[number].cookieMessage
                 self.messageType = self.cookiesDB[number].cookieType
                 self.newCookieDate.text = dateFormatter.string(from: dateTest)
                 self.saveButton.isHidden = false
@@ -96,7 +97,7 @@ class CookiesViewController: UIViewController {
             return
         }
         
-        let newCookie_Result = resultSQL.text ?? ""
+        let newCookie_Result = cookieMessageResult.text ?? ""
         let newCookie_Photo =  UIImage(named:"Open-CookieIMG")
         let newCookie_DateTime = newCookieDate.text ?? ""
        
@@ -146,10 +147,16 @@ class CookiesViewController: UIViewController {
         guard let messageDB_13 = MessageDB(cookieMessage: "Wealth awaits you very soon.", cookieType: "Positive") else {
             fatalError("Error Message13")
         }
+        guard let messageDB_14 = MessageDB(cookieMessage: "Jealousy doesn't open doors, it closes them!", cookieType: "Negative") else {
+            fatalError("Error Message14")
+        }
+        guard let messageDB_15 = MessageDB(cookieMessage: "It's better to be alone sometimes.", cookieType: "Negative") else {
+            fatalError("Error Message15")
+        }
         
         
         cookiesDB += [messageDB_1,messageDB_2,messageDB_3,messageDB_4,messageDB_5,messageDB_6,messageDB_7,messageDB_8,messageDB_9,messageDB_10
-        ,messageDB_11,messageDB_12,messageDB_13]
+        ,messageDB_11,messageDB_12,messageDB_13,messageDB_14,messageDB_15]
         
        
     }
