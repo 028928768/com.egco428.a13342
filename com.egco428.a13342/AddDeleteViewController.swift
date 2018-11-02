@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import os.log
 
 class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
-    var editCookies = [Result]()
+  //  var editCookies = [Result]()
+    var results = [Result]()
     
     //Picker Outlets
     @IBOutlet var typeButtons: [UIButton]!
@@ -22,7 +24,7 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return editCookies.count
+        return results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -35,14 +37,46 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         //Fetch the appropriate result for the data source layout.
-        let Edit_cookies = editCookies[indexPath.row]
+       // let Edit_cookies = editCookies[indexPath.row]
+        let result = results[indexPath.row]
         // cell.message.text = Edit_cookies.result
-        cell.message.text = "Hello!"
-        cell.type.text = "Positive"
+        cell.message.text = result.result
+        cell.type.text = result.type
+        
+//        if result.type == "Positive" {
+//            cell.fortuneResult.text = result.result
+//            cell.fortuneResult.textColor = UIColor.blue
+//        } else if result.type == "Negative" {
+//            cell.fortuneResult.text = result.result
+//            cell.fortuneResult.textColor = UIColor.orange
+//        } else {
+//            cell.fortuneResult.text = result.result
+//        }
+//
+//        cell.fortuneDateTime.text = result.datetime
+        
+        
+       // cell.cookieImage.image = result.cookiePhoto
         
         
         return cell
         
+    }
+    
+    
+    //saveCookies to database
+    private func saveCookies() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(results, toFile: Result.ArchiveURL.path)
+        if isSuccessfulSave {
+            os_log("Meals successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save meals...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    //save
+    private func loadCookies() -> [Result]? {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Result.ArchiveURL.path) as? [Result]
     }
     
     // Type Selector action
@@ -93,9 +127,16 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       // loadSampleMessage()
+       
+        if let saveCookies = loadCookies(){
+            results += saveCookies
+        } else {
+            //Load sample data
+            //loadSampleResults()
+            loadCookies()
+        }
 
-        // Do any additional setup after loading the view.
+        
     }
     
 //    private func loadSampleMessage(){
@@ -116,6 +157,8 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
 //        editCookies += [message1,message2,message3]
 //    }
 
+    
+    
     /*
     // MARK: - Navigation
 

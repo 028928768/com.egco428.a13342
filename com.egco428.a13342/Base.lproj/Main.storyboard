@@ -236,6 +236,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Jtg-n5-A5N" id="X7F-kw-YjW"/>
+                                    <outlet property="delegate" destination="Jtg-n5-A5N" id="Ayd-9e-Wcb"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cookie Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzL-Qf-yfQ">
                                 <rect key="frame" x="16" y="81" width="127" height="21"/>
