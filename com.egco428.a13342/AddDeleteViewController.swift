@@ -12,12 +12,16 @@ import os.log
 class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //MARK: Properties
-  //  var editCookies = [Result]()
     var results = [Result]()
+    var newCookie: Result?
+    var selectedType: String = ""
     
     //Picker Outlets
     @IBOutlet var typeButtons: [UIButton]!
     @IBOutlet weak var selectTypeButton: UIButton!
+    @IBOutlet weak var newMessage: UITextField!
+    
+ 
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -37,23 +41,22 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         //Fetch the appropriate result for the data source layout.
-       // let Edit_cookies = editCookies[indexPath.row]
         let result = results[indexPath.row]
-        // cell.message.text = Edit_cookies.result
-        cell.message.text = result.result
+       
+      //  cell.message.text = result.result
         cell.type.text = result.type
         
-//        if result.type == "Positive" {
-//            cell.fortuneResult.text = result.result
-//            cell.fortuneResult.textColor = UIColor.blue
-//        } else if result.type == "Negative" {
-//            cell.fortuneResult.text = result.result
-//            cell.fortuneResult.textColor = UIColor.orange
-//        } else {
-//            cell.fortuneResult.text = result.result
-//        }
-//
-//        cell.fortuneDateTime.text = result.datetime
+        if result.type == "Positive" {
+            cell.message.text = result.result
+            cell.message.textColor = UIColor.blue
+        } else if result.type == "Negative" {
+            cell.message.text = result.result
+            cell.message.textColor = UIColor.orange
+        } else {
+            cell.message.text = result.result
+        }
+
+          cell.type.text = result.type
         
         
        // cell.cookieImage.image = result.cookiePhoto
@@ -61,6 +64,18 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
         
         return cell
         
+    }
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            results.remove(at: indexPath.row)
+            saveCookies()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     
@@ -103,6 +118,7 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
         
         switch  type {
         case .Negative:
+            selectedType = "Negative"
             selectTypeButton.setTitle("Negative", for: .normal)
             typeButtons.forEach{ (button) in
                 UIView.animate(withDuration: 0.3, animations: {
@@ -112,6 +128,7 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
             }
            // print("Negative")
         default:
+            selectedType = "Positive"
             selectTypeButton.setTitle("Positive", for: .normal)
             typeButtons.forEach{ (button) in
                     UIView.animate(withDuration: 0.3, animations: {
@@ -127,7 +144,8 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+       navigationItem.rightBarButtonItem = editButtonItem
+        
         if let saveCookies = loadCookies(){
             results += saveCookies
         } else {
@@ -138,6 +156,38 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
 
         
     }
+    
+    @IBAction func addMessageMethod(_ sender: Any) {
+        if newMessage.text == "" {
+            print("nil message > don nothing")
+        } else {
+        print("Add button!")
+        // Date Picker
+        let dateTest = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MMM-yyyy HH:mm a"
+        dateFormatter.locale = Locale(identifier: "th")
+        
+        
+        let newCookie_Result = newMessage.text ?? ""
+        let newCookie_Photo =  UIImage(named:"Open-CookieIMG")
+        let newCookie_DateTime = dateFormatter.string(from: dateTest)
+        let newCookie_Type = selectedType
+        
+         newCookie = Result(cookiePhoto: newCookie_Photo, result: newCookie_Result, datetime: newCookie_DateTime, type: newCookie_Type)
+        
+        //Add new row
+        results.append(newCookie!)
+        let newIndexPath = IndexPath(row: results.count, section: 0)
+            //self.MessageTableView.insertRows(at: [newIndexPath], with: .automatic)
+            //self.tableview.insertRows(at: [newIndexPath], with: .automatic)
+             saveCookies()
+        }
+            }
+       
+       // loadCookies()
+
+
     
 //    private func loadSampleMessage(){
 //        let photo = UIImage(named: "Open-CookieIMG")

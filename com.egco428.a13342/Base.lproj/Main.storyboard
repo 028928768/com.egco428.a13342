@@ -248,6 +248,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7m7-VH-yWw">
+                                <rect key="frame" x="17" y="110" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZOH-AH-556">
                                 <rect key="frame" x="15" y="181" width="345" height="53.5"/>
                                 <subviews>
@@ -289,13 +296,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7m7-VH-yWw">
-                                <rect key="frame" x="17" y="110" width="343" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tt7-D7-1WA">
+                                <rect key="frame" x="17" y="252" width="51" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <color key="backgroundColor" red="0.89689127599999996" green="0.89791293279999995" blue="0.93507656120000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addMessageMethod:" destination="Jtg-n5-A5N" eventType="touchUpInside" id="EAg-2w-PWv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -305,8 +314,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LmL-zq-FAu"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add/Delete Fortune Cookies" id="zKE-ij-4r0"/>
+                    <navigationItem key="navigationItem" title="Add/Delete Fortune Cookies" id="zKE-ij-4r0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="vu5-z6-9UZ"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="newMessage" destination="7m7-VH-yWw" id="c9t-wE-AVL"/>
                         <outlet property="selectTypeButton" destination="Trj-RE-y1e" id="HZ7-Uo-6JV"/>
                         <outletCollection property="typeButtons" destination="bjd-6D-rx1" collectionClass="NSMutableArray" id="mwZ-rp-FHy"/>
                         <outletCollection property="typeButtons" destination="5gz-Ec-Crn" collectionClass="NSMutableArray" id="cxI-iV-4f3"/>
