@@ -12,6 +12,12 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //MARK: Properties
     var editCookies = [Result]()
+    
+    //Picker Outlets
+    @IBOutlet var typeButtons: [UIButton]!
+    @IBOutlet weak var selectTypeButton: UIButton!
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -38,6 +44,51 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
         return cell
         
     }
+    
+    // Type Selector action
+    @IBAction func handleSelection(_ sender: UIButton) {
+        typeButtons.forEach{ (button) in
+            UIView.animate(withDuration: 0.3, animations: {
+                 button.isHidden = !button.isHidden
+                 self.view.layoutIfNeeded()
+            })
+          
+    }
+    }
+    //type tapped
+    
+    enum Types : String {
+        case Positive = "Positive"
+        case Negative = "Negative"
+    }
+    
+    @IBAction func typeTapped(_ sender: UIButton) {
+        guard  let title = sender.currentTitle, let type = Types(rawValue: title) else {
+            return
+        }
+        
+        switch  type {
+        case .Negative:
+            selectTypeButton.setTitle("Negative", for: .normal)
+            typeButtons.forEach{ (button) in
+                UIView.animate(withDuration: 0.3, animations: {
+                    button.isHidden = !button.isHidden
+                    self.view.layoutIfNeeded()
+                })
+            }
+           // print("Negative")
+        default:
+            selectTypeButton.setTitle("Positive", for: .normal)
+            typeButtons.forEach{ (button) in
+                    UIView.animate(withDuration: 0.3, animations: {
+                        button.isHidden = !button.isHidden
+                        self.view.layoutIfNeeded()
+                    })
+           
+            }
+            }
+    }
+    
     
 
     override func viewDidLoad() {
