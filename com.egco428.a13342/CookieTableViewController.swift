@@ -27,6 +27,7 @@ class CookieTableViewController: UITableViewController {
         } else {
         //Load sample data
         loadSampleResults()
+        loadCookies()
         }
     }
 
@@ -54,7 +55,16 @@ class CookieTableViewController: UITableViewController {
         //Fetch the appropriate result for the data source layout.
         let result = results[indexPath.row]
         
-        cell.fortuneResult.text = result.result
+        if result.type == "Positive" {
+            cell.fortuneResult.text = result.result
+            cell.fortuneResult.textColor = UIColor.blue
+        } else if result.type == "Negative" {
+            cell.fortuneResult.text = result.result
+            cell.fortuneResult.textColor = UIColor.orange
+        } else {
+            cell.fortuneResult.text = result.result
+        }
+        
         cell.fortuneDateTime.text = result.datetime
         cell.cookieImage.image = result.cookiePhoto
         
@@ -133,18 +143,18 @@ class CookieTableViewController: UITableViewController {
     private func loadSampleResults(){
         let photo = UIImage(named: "Open-CookieIMG")
         
-        guard let cookie1 = Result(cookiePhoto: photo, result: "You're Lucky!!", datetime: "10-October-2018 12:00PM",type: "") else {
+        guard let cookies1 = Result(cookiePhoto: photo, result: "You're Lucky!!", datetime: "10-October-2018 12:00PM",type: "Positive") else {
             fatalError("Unable to load result of cookie1")
         }
         
-        guard let cookie2 = Result(cookiePhoto: photo, result: "You will get A", datetime: "11-October-2018 13:00PM",type: "") else {
+        guard let cookies2 = Result(cookiePhoto: photo, result: "You will get A", datetime: "11-October-2018 13:00PM",type: "Positive") else {
             fatalError("Unable to load result of cookie2")
         }
-        guard let cookie3 = Result(cookiePhoto: photo, result: "Don't panic", datetime: "12-October-2018 14:00PM",type: "") else {
+        guard let cookies3 = Result(cookiePhoto: photo, result: "Don't panic", datetime: "12-October-2018 14:00PM",type: "Negative") else {
             fatalError("Unable to load result of cookie3")
         }
         
-        results += [cookie1,cookie2,cookie3]
+        results += [cookies1,cookies2,cookies3]
     }
     
     private func saveCookies() {
