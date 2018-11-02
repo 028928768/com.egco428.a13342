@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15BCAF3E218C4EBD00B6B26B /* MessageDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BCAF3D218C4EBD00B6B26B /* MessageDB.swift */; };
 		15BD4447218988C0004D77A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD4446218988C0004D77A9 /* AppDelegate.swift */; };
 		15BD4449218988C0004D77A9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BD4448218988C0004D77A9 /* ViewController.swift */; };
 		15BD444C218988C0004D77A9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15BD444A218988C0004D77A9 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15BCAF3D218C4EBD00B6B26B /* MessageDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDB.swift; sourceTree = "<group>"; };
 		15BD4443218988C0004D77A9 /* com.egco428.a13342.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = com.egco428.a13342.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		15BD4446218988C0004D77A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		15BD4448218988C0004D77A9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				15BD445D2189940D004D77A9 /* CookieTableViewController.swift */,
 				15BD445F2189942B004D77A9 /* CookieTableViewCell.swift */,
 				15BD446121899653004D77A9 /* Result.swift */,
+				15BCAF3D218C4EBD00B6B26B /* MessageDB.swift */,
 				15BD4450218988C2004D77A9 /* Assets.xcassets */,
 				15BD4452218988C2004D77A9 /* LaunchScreen.storyboard */,
 				15BD4455218988C2004D77A9 /* Info.plist */,
@@ -163,6 +166,7 @@
 				15BD44662189FD5F004D77A9 /* AddDeleteViewController.swift in Sources */,
 				15BD444F218988C0004D77A9 /* com_egco428_a13342.xcdatamodeld in Sources */,
 				15BD4447218988C0004D77A9 /* AppDelegate.swift in Sources */,
+				15BCAF3E218C4EBD00B6B26B /* MessageDB.swift in Sources */,
 				15BD445E2189940D004D77A9 /* CookieTableViewController.swift in Sources */,
 				15BD44602189942B004D77A9 /* CookieTableViewCell.swift in Sources */,
 			);

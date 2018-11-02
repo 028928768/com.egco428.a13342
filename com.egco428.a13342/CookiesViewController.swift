@@ -13,6 +13,8 @@ class CookiesViewController: UIViewController {
     var newCookie: Result?
     let closed_Cookie = UIImage(named: "Close-CookieIMG")
     let opened_Cookie = UIImage(named: "Open-CookieIMG")
+    var cookiesDB = [MessageDB]()
+    var messageType: String = ""
     //MARK: Properties
     
     @IBOutlet weak var resultSQL: UILabel!
@@ -28,6 +30,7 @@ class CookiesViewController: UIViewController {
         super.viewDidLoad()
         cookieImage.image = closed_Cookie
         saveButton.isHidden = true
+        storeCookieMessageAndType()
         
         
     }
@@ -45,8 +48,11 @@ class CookiesViewController: UIViewController {
             self.showToast(message: "Waiting")
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
                 // Put your code which should be executed with a delay here
+                
+                let number = Int.random(in: 0 ... 13)
                 self.cookieImage.image = self.opened_Cookie
-                self.resultSQL.text = "New Propercy!!"
+                self.resultSQL.text = self.cookiesDB[number].cookieMessage
+                self.messageType = self.cookiesDB[number].cookieType
                 self.newCookieDate.text = dateFormatter.string(from: dateTest)
                 self.saveButton.isHidden = false
             })
@@ -97,8 +103,55 @@ class CookiesViewController: UIViewController {
         
        // let testPhoto = UIImage(named:"Open-CookieIMG") newCookie_Result
         
-        newCookie = Result(cookiePhoto: newCookie_Photo, result: newCookie_Result, datetime: newCookie_DateTime, type: "Positive")
+        newCookie = Result(cookiePhoto: newCookie_Photo, result: newCookie_Result, datetime: newCookie_DateTime, type: messageType)
         
+    }
+    private func storeCookieMessageAndType(){
+        guard let messageDB_1 = MessageDB(cookieMessage: "Today it's up to you to create the peacefulness you long for.", cookieType: "Positive") else {
+            fatalError("Error Message1")
+        }
+        guard let messageDB_2 = MessageDB(cookieMessage: "A friend asks only for your time not your money.", cookieType: "Positive") else {
+            fatalError("Error Message2")
+        }
+        guard let messageDB_3 = MessageDB(cookieMessage: "If you refuse to accept anything but the best, you very often get it.", cookieType: "Positive") else {
+            fatalError("Error Message3")
+        }
+        guard let messageDB_4 = MessageDB(cookieMessage: "A smile is your passport into the hearts of others.", cookieType: "Positive") else {
+            fatalError("Error Message4")
+        }
+        guard let messageDB_5 = MessageDB(cookieMessage: "A good way to keep healthy is to eat more Chinese food.", cookieType: "Positive") else {
+            fatalError("Error Message5")
+        }
+        guard let messageDB_6 = MessageDB(cookieMessage: "Your high-minded principles spell success.", cookieType: "Positive") else {
+            fatalError("Error Message6")
+        }
+        guard let messageDB_7 = MessageDB(cookieMessage: "You learn from your mistakes... You will learn a lot today.", cookieType: "Negative") else {
+            fatalError("Error Message7")
+        }
+        guard let messageDB_8 = MessageDB(cookieMessage: "Your shoes will make you sad today.", cookieType: "Negative") else {
+            fatalError("Error Message8")
+        }
+        guard let messageDB_9 = MessageDB(cookieMessage: "The man or woman you desire feels the same about you.", cookieType: "Positive") else {
+            fatalError("Error Message9")
+        }
+        guard let messageDB_10 = MessageDB(cookieMessage: "A dream you have will come true.", cookieType: "Positive") else {
+            fatalError("Error Message10")
+        }
+        guard let messageDB_11 = MessageDB(cookieMessage: "Serious trouble will bypass you.", cookieType: "Negative") else {
+            fatalError("Error Message11")
+        }
+        guard let messageDB_12 = MessageDB(cookieMessage: "Now is the time to try something new.", cookieType: "Negative") else {
+            fatalError("Error Message12")
+        }
+        guard let messageDB_13 = MessageDB(cookieMessage: "Wealth awaits you very soon.", cookieType: "Positive") else {
+            fatalError("Error Message13")
+        }
+        
+        
+        cookiesDB += [messageDB_1,messageDB_2,messageDB_3,messageDB_4,messageDB_5,messageDB_6,messageDB_7,messageDB_8,messageDB_9,messageDB_10
+        ,messageDB_11,messageDB_12,messageDB_13]
+        
+       
     }
     
   

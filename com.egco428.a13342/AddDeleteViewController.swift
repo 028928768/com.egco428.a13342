@@ -43,8 +43,7 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
         //Fetch the appropriate result for the data source layout.
         let result = results[indexPath.row]
        
-      //  cell.message.text = result.result
-        cell.type.text = result.type
+       // cell.type.text = result.type
         
         if result.type == "Positive" {
             cell.message.text = result.result

@@ -14,6 +14,7 @@ class CookieTableViewController: UITableViewController {
 
     //MARK: Properties
     var results = [Result]()
+    var cookiesDB = [MessageDB]()
     
     
     override func viewDidLoad() {
@@ -168,5 +169,9 @@ class CookieTableViewController: UITableViewController {
     private func loadCookies() -> [Result]? {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Result.ArchiveURL.path) as? [Result]
     }
+    
+    
+    
+    
 
 }
