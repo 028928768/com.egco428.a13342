@@ -22,9 +22,9 @@ class CookiesViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var newCookieDate: UILabel!
     @IBOutlet weak var cookieMessageResult: UITextView!
-    
-    
-    //date picker
+    @IBOutlet weak var shakeOutlet: UIImageView!
+    //cast image
+    let saveButtonImage = UIImage(named: "saveButton")
     
     
     override func viewDidLoad() {
@@ -32,6 +32,19 @@ class CookiesViewController: UIViewController {
         cookieImage.image = closed_Cookie
         saveButton.isHidden = true
         storeCookieMessageAndType()
+        
+        //animation
+      //  saveButton.setImage(saveButtonImage, for: .normal)
+        var shakeButtonsList: [UIImage] = []
+        for i in 0...4 {
+            let fn = "shake-"+String(format: "%d", i)+".png"
+            let vImage = UIImage(named: fn)
+            shakeButtonsList.append(vImage!)
+        }
+        shakeOutlet.animationImages = shakeButtonsList
+        shakeOutlet.animationDuration = 3
+        shakeOutlet.startAnimating()
+        
         
         
     }
@@ -49,7 +62,8 @@ class CookiesViewController: UIViewController {
             self.showToast(message: "Waiting")
             DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4), execute: {
                 // Put your code which should be executed with a delay here
-                
+                self.shakeOutlet.stopAnimating()
+                self.shakeOutlet.isHidden = true
                 let number = Int.random(in: 0 ... 13)
                 self.cookieImage.image = self.opened_Cookie
                 self.cookieMessageResult.text = self.cookiesDB[number].cookieMessage
