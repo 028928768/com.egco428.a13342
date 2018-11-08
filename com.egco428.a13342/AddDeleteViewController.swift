@@ -20,6 +20,7 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
     @IBOutlet var typeButtons: [UIButton]!
     @IBOutlet weak var selectTypeButton: UIButton!
     @IBOutlet weak var newMessage: UITextField!
+    @IBOutlet weak var AddMessageTableView: UITableView!
     
  
     
@@ -148,11 +149,10 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
         if let saveCookies = loadCookies(){
             results += saveCookies
         } else {
-            //Load sample data
-            //loadSampleResults()
             loadCookies()
         }
-
+        AddMessageTableView.delegate = self
+        AddMessageTableView.dataSource = self
         
     }
     
@@ -178,8 +178,12 @@ class AddDeleteViewController: UIViewController, UITableViewDelegate, UITableVie
         //Add new row
         results.append(newCookie!)
         let newIndexPath = IndexPath(row: results.count, section: 0)
-            //self.MessageTableView.insertRows(at: [newIndexPath], with: .automatic)
+            
+           //AddMessageTableView.insertRows(at: [newIndexPath], with: .bottom)
+            
             //self.tableview.insertRows(at: [newIndexPath], with: .automatic)
+           // tableView.insertRows(at: [newIndexPath], with: .automatic)
+            
              saveCookies()
         }
             }

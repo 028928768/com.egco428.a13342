@@ -15,6 +15,7 @@ class CookiesViewController: UIViewController {
     let opened_Cookie = UIImage(named: "Open-CookieIMG")
     var cookiesDB = [MessageDB]()
     var messageType: String = ""
+    var isShake: Bool = false
     //MARK: Properties
     
     @IBOutlet weak var resultSQL: UILabel!
@@ -32,6 +33,7 @@ class CookiesViewController: UIViewController {
         cookieImage.image = closed_Cookie
         saveButton.isHidden = true
         storeCookieMessageAndType()
+        isShake = false
         
         //animation
       //  saveButton.setImage(saveButtonImage, for: .normal)
@@ -53,6 +55,7 @@ class CookiesViewController: UIViewController {
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if event?.subtype == UIEvent.EventSubtype.motionShake {
             
+            if isShake == false {
             // Date Picker
             let dateTest = Date()
             let dateFormatter = DateFormatter()
@@ -79,11 +82,12 @@ class CookiesViewController: UIViewController {
                 self.messageType = self.cookiesDB[number].cookieType
                 self.newCookieDate.text = dateFormatter.string(from: dateTest)
                 self.saveButton.isHidden = false
+                self.isShake = true
             })
-//            cookieImage.image = opened_Cookie
-//            resultSQL.text = "New Propercy!!"
-//            newCookieDate.text = dateFormatter.string(from: dateTest)
-//            saveButton.isHidden = false
+
+            } else if isShake == true {
+                print("Already shaked,do nothing!")
+            }
         }
     }
     
