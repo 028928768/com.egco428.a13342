@@ -64,9 +64,18 @@ class CookiesViewController: UIViewController {
                 // Put your code which should be executed with a delay here
                 self.shakeOutlet.stopAnimating()
                 self.shakeOutlet.isHidden = true
-                let number = Int.random(in: 0 ... 13)
+                let number = Int.random(in: 0 ... 14)
                 self.cookieImage.image = self.opened_Cookie
-                self.cookieMessageResult.text = self.cookiesDB[number].cookieMessage
+                if self.cookiesDB[number].cookieType == "Positive" {
+                    
+                   self.cookieMessageResult.text = self.cookiesDB[number].cookieMessage
+                   self.cookieMessageResult.textColor = UIColor.blue
+                } else if self.cookiesDB[number].cookieType == "Negative" {
+                    self.cookieMessageResult.text = self.cookiesDB[number].cookieMessage
+                    self.cookieMessageResult.textColor = UIColor.orange
+                    
+                }
+               // self.cookieMessageResult.text = self.cookiesDB[number].cookieMessage
                 self.messageType = self.cookiesDB[number].cookieType
                 self.newCookieDate.text = dateFormatter.string(from: dateTest)
                 self.saveButton.isHidden = false
